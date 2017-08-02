@@ -10284,6 +10284,8 @@ module.exports = __webpack_require__(91);
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(12);
 
 var _react2 = _interopRequireDefault(_react);
@@ -10292,7 +10294,72 @@ var _reactDom = __webpack_require__(106);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _reactGamepad = __webpack_require__(209);
+
+var _reactGamepad2 = _interopRequireDefault(_reactGamepad);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_React$Component) {
+    _inherits(App, _React$Component);
+
+    function App() {
+        _classCallCheck(this, App);
+
+        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    }
+
+    _createClass(App, [{
+        key: 'connectHandler',
+        value: function connectHandler(gamepadIndex) {
+            console.log('Gamepad ${gamepadIndex} connected !');
+        }
+    }, {
+        key: 'disconnectHandler',
+        value: function disconnectHandler(gamepadIndex) {
+            console.log('Gamepad ${gamepadIndex} disconnected !');
+        }
+    }, {
+        key: 'buttonChangeHandler',
+        value: function buttonChangeHandler(buttonName, down) {
+            console.log(buttonName, down);
+        }
+    }, {
+        key: 'axisChangeHandler',
+        value: function axisChangeHandler(axisName, value, previousValue) {
+            console.log(axisName, value);
+        }
+    }, {
+        key: 'buttonDownHandler',
+        value: function buttonDownHandler(buttonName) {
+            console.log(buttonName, 'down');
+        }
+    }, {
+        key: 'buttonUpHandler',
+        value: function buttonUpHandler(buttonName) {
+            console.log(buttonName, 'up');
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(_reactGamepad2.default, {
+                onConnect: this.connectHandler,
+                onDisconnect: this.disconnectHandler,
+
+                onButtonChange: this.buttonChangeHandler,
+                onAxisChange: this.axisChangeHandler
+            });
+        }
+    }]);
+
+    return App;
+}(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(
     'h1',
@@ -22405,6 +22472,365 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.XBOX = undefined;
+
+var _XBOX = __webpack_require__(211);
+
+var _XBOX2 = _interopRequireDefault(_XBOX);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.XBOX = _XBOX2.default;
+exports.default = {
+  XBOX: _XBOX2.default
+};
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.layouts = exports.Gamepad = undefined;
+
+var _Gamepad = __webpack_require__(210);
+
+var _Gamepad2 = _interopRequireDefault(_Gamepad);
+
+var _layouts = __webpack_require__(208);
+
+var _layouts2 = _interopRequireDefault(_layouts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_Gamepad2.default.layouts = _layouts2.default;
+
+exports.Gamepad = _Gamepad2.default;
+exports.layouts = _layouts2.default;
+exports.default = _Gamepad2.default;
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(12);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _layouts = __webpack_require__(208);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Gamepad = function (_React$Component) {
+  _inherits(Gamepad, _React$Component);
+
+  function Gamepad(props, context) {
+    _classCallCheck(this, Gamepad);
+
+    var _this = _possibleConstructorReturn(this, (Gamepad.__proto__ || Object.getPrototypeOf(Gamepad)).call(this, props, context));
+
+    _this.padState = {
+      connected: false,
+
+      buttons: {
+        A: false,
+        B: false,
+        X: false,
+        Y: false,
+
+        LB: false,
+        LT: false,
+        LS: false,
+
+        RB: false,
+        RT: false,
+        RS: false,
+
+        Start: false,
+        Back: false,
+
+        DPadUp: false,
+        DPadRight: false,
+        DPadDown: false,
+        DPadLeft: false
+      },
+
+      axis: {
+        LeftStickX: 0.0,
+        LeftStickY: 0.0,
+
+        RightStickX: 0.0,
+        RightStickY: 0.0,
+
+        RightTrigger: 0.0,
+        LeftTrigger: 0.0
+      }
+    };
+    return _this;
+  }
+
+  _createClass(Gamepad, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.mounted = true;
+
+      if (window && window.requestAnimationFrame) window.requestAnimationFrame(this.updateGamepad.bind(this));
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.mounted = false;
+    }
+  }, {
+    key: 'updateGamepad',
+    value: function updateGamepad() {
+      if (!this.mounted) return;
+
+      var gamepadIndex = this.props.gamepadIndex;
+      var gamepads = navigator.getGamepads();
+
+      if (gamepads.length && gamepads.length > gamepadIndex && gamepads[gamepadIndex]) {
+        var gamepad = gamepads[gamepadIndex];
+
+        if (!this.padState.connected) {
+          this.padState.connected = true;
+          this.props.onConnect(gamepadIndex);
+        }
+
+        this.updateAllButtons(gamepad);
+        this.updateAllAxis(gamepad);
+      } else if (this.padState.connected) {
+        this.padState.connected = false;
+        this.props.onDisconnect(gamepadIndex);
+      }
+
+      if (window && window.requestAnimationFrame) window.requestAnimationFrame(this.updateGamepad.bind(this));
+    }
+  }, {
+    key: 'updateAllButtons',
+    value: function updateAllButtons(gamepad) {
+      for (var i = 0; i < gamepad.buttons.length; ++i) {
+        var pressed = gamepad.buttons[i].pressed;
+        var value = gamepad.buttons[i].value;
+
+        var buttonName = this.buttonIndexToButtonName(i);
+        this.updateButton(buttonName, pressed);
+
+        var axisName = this.buttonIndexToAxisName(i);
+        this.updateAxis(axisName, value);
+      }
+    }
+  }, {
+    key: 'updateButton',
+    value: function updateButton(buttonName, pressed) {
+      if (this.padState.buttons[buttonName] === undefined) {
+        console.error('Unknown button ' + buttonName);
+      } else if (this.padState.buttons[buttonName] !== pressed) {
+        this.padState.buttons[buttonName] = pressed;
+
+        this.props.onButtonChange(buttonName, pressed);
+        this.props['onButton' + (pressed ? 'Down' : 'Up')](buttonName);
+        if (pressed) this.props['on' + buttonName.replace('DPad', '')]();
+      }
+    }
+  }, {
+    key: 'updateAllAxis',
+    value: function updateAllAxis(gamepad) {
+      for (var i = 0; i < gamepad.axes.length; ++i) {
+        var axisName = this.axisIndexToAxisName(i);
+        var value = gamepad.axes[i];
+
+        this.updateAxis(axisName, gamepad.axes[i]);
+      }
+    }
+  }, {
+    key: 'updateAxis',
+    value: function updateAxis(axisName, originalValue) {
+      if (axisName && originalValue !== undefined && originalValue !== null && originalValue !== NaN) {
+        var invert = axisName[0] === '-';
+        var value = originalValue * (invert ? -1 : 1);
+
+        if (Math.abs(value) < this.props.deadZone) {
+          value = 0;
+        }
+
+        if (invert) axisName = axisName.substr(1);
+
+        if (this.padState.axis[axisName] !== value) {
+          var previousValue = this.padState.axis[axisName];
+          this.padState.axis[axisName] = value;
+
+          this.props.onAxisChange(axisName, value, previousValue);
+
+          if (axisName === 'LeftStickX') {
+            if (previousValue <= this.props.stickThreshold && value > this.props.stickThreshold) {
+              this.props.onRight();
+            }
+
+            if (previousValue >= -this.props.stickThreshold && value < -this.props.stickThreshold) {
+              this.props.onLeft();
+            }
+          }
+
+          if (axisName === 'LeftStickY') {
+            if (previousValue <= this.props.stickThreshold && value > this.props.stickThreshold) {
+              this.props.onUp();
+            }
+
+            if (previousValue >= -this.props.stickThreshold && value < -this.props.stickThreshold) {
+              this.props.onDown();
+            }
+          }
+        }
+      }
+    }
+  }, {
+    key: 'buttonIndexToButtonName',
+    value: function buttonIndexToButtonName(index) {
+      var layout = this.props.layout;
+
+
+      if (layout.buttons && layout.buttons.length >= index + 1) {
+        return layout.buttons[index];
+      }
+
+      return null;
+    }
+  }, {
+    key: 'buttonIndexToAxisName',
+    value: function buttonIndexToAxisName(index) {
+      var layout = this.props.layout;
+
+
+      if (layout.buttonAxis && layout.buttonAxis.length >= index + 1) {
+        return layout.buttonAxis[index];
+      }
+
+      return null;
+    }
+  }, {
+    key: 'axisIndexToAxisName',
+    value: function axisIndexToAxisName(index) {
+      var layout = this.props.layout;
+
+
+      if (layout.axis && layout.axis.length >= index + 1) {
+        return layout.axis[index];
+      }
+
+      return null;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.Children.only(this.props.children);
+    }
+  }]);
+
+  return Gamepad;
+}(_react2.default.Component);
+
+Gamepad.defaultProps = {
+  layout: _layouts.XBOX,
+
+  stickThreshold: 0.5,
+  deadZone: 0.08,
+
+  gamepadIndex: 0,
+
+  onConnect: function onConnect() {},
+  onDisconnect: function onDisconnect() {},
+
+  onButtonDown: function onButtonDown() {},
+  onButtonUp: function onButtonUp() {},
+  onButtonChange: function onButtonChange() {},
+  onAxisChange: function onAxisChange() {},
+
+  onA: function onA() {},
+  onB: function onB() {},
+  onX: function onX() {},
+  onY: function onY() {},
+
+  onStart: function onStart() {},
+  onBack: function onBack() {},
+
+  onLT: function onLT() {},
+  onRT: function onRT() {},
+
+  onLB: function onLB() {},
+  onRB: function onRB() {},
+
+  onLS: function onLS() {},
+  onRS: function onRS() {},
+
+  onUp: function onUp() {},
+  onDown: function onDown() {},
+  onLeft: function onLeft() {},
+  onRight: function onRight() {}
+};
+exports.default = Gamepad;
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  buttons: ['A', 'B', 'X', 'Y', 'LB', 'RB', 'LT', 'RT', 'Back', 'Start', 'LS', 'RS', 'DPadUp', 'DPadDown', 'DPadLeft', 'DPadRight'],
+  axis: ['LeftStickX', '-LeftStickY', 'RightStickX', '-RightStickY'],
+  buttonAxis: [null, null, null, null, null, null, 'LeftTrigger', 'RightTrigger']
+};
 
 /***/ })
 /******/ ]);
