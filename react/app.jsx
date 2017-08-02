@@ -40,7 +40,20 @@ class App extends React.Component {
     }
 }
 
+function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+    firstName: 'Douglas',
+    lastName: 'Glover'
+};
+
+const element = (
+    <h1>Hello, {formatName(user)}!</h1>
+);
+
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    element,
     document.getElementById('app')
 );

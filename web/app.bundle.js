@@ -10361,11 +10361,24 @@ var App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(
+function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+}
+
+var user = {
+    firstName: 'Douglas',
+    lastName: 'Glover'
+};
+
+var element = _react2.default.createElement(
     'h1',
     null,
-    'Hello, world!'
-), document.getElementById('app'));
+    'Hello, ',
+    formatName(user),
+    '!'
+);
+
+_reactDom2.default.render(element, document.getElementById('app'));
 
 /***/ }),
 /* 92 */
